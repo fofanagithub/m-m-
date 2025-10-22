@@ -739,15 +739,7 @@ Additional tuning knobs include `TRAFFIC_BATCH_LIMIT`, `RAIL_BATCH_LIMIT`, `AGEN
 
 
 
-flowchart LR
-  UI[UI Web (React + MapLibre)] -->|GET /ingest/snapshot<br/>GET /control/decisions/*| BE[Backend Express]
-  SIM[Simulateurs/Capteurs] -->|POST /ingest| BE
-  AG[Agents (Node.js)] -->|GET /ingest/next| BE
-  AG -->|POST /control| BE
-  AG -->|/traffic/infer<br/>/rail/infer| INF[Service d'inférence (FastAPI)]
-  BE -->|Publie décisions| HCS[Hedera Consensus Service (topics)]
-  HCS --> MIR[Miroir Hedera (lecture audit)]
-  MIR -->|Audit public| UI
-  BE -->|Expose journal| UI
+
+
 
 
